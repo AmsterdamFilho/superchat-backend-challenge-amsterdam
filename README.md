@@ -58,6 +58,8 @@ This may take a while, since it will build the image.
 
 Just type `http://localhost:8080/q/swagger-ui/` in the browser to access the swagger ui and test the endpoints.
 
+Placeholders for contact name and bitcoin price are {{contactName}} and {{bitcoinPrice}}
+
 ## Disclaimer
 
 The chosen architecture has many layers of abstraction that, given the simplicity of the requirements, make the solution look over-engineered.

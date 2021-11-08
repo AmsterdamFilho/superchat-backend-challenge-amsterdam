@@ -13,7 +13,7 @@ public abstract class Channel<T> {
 
     public abstract void accept(ChannelVisitor visitor);
 
-    public Uni<Void> send(Message message) {
-        return port().sendMessage(translate(message));
+    public Uni<Message> send(Message message) {
+        return port().sendMessage(translate(message)).replaceWith(message);
     }
 }

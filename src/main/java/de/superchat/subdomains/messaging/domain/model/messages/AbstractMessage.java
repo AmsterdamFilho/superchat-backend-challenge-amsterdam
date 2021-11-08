@@ -48,7 +48,8 @@ public abstract class AbstractMessage {
         return placeholderService.execute((Message) this).
                 map(message::withContent).
                 flatMap(channel()::send).
-                flatMap(unused -> persist(repository));
+                flatMap(repository::persist).
+                map(message::withId);
     }
 
     public Uni<Message> persist(MessageRepository repository) {
