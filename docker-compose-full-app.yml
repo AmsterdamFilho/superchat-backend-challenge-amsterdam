@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: "Dockerfile"
+      target: app
+    ports:
+      - "8080:8080"
+    environment:
+      QUARKUS_DATASOURCE_REACTIVE_URL: vertx-reactive:postgresql://db/superchat
+    depends_on:
+      - db
+  db:
+    image: postgres:12
+    container_name: superchat-postgres-full-app
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: superchat

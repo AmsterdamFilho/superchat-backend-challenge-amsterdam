@@ -1,0 +1,15 @@
+quarkus:
+  datasource:
+    db-kind: postgresql
+    reactive:
+      url: vertx-reactive:postgresql://localhost:5432/superchat
+    password: postgres
+    username: postgres
+  hibernate-orm:
+    database:
+      generation: drop-and-create
+  http:
+    cors:
+      ~: true
+  swagger-ui:
+    always-include: true
